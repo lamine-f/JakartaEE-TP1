@@ -125,7 +125,6 @@
                                 Boolean submitted = (Boolean) request.getAttribute("submitted");
                                 if (submitted != null && submitted) {
                             %>
-                                <!-- Affichage des résultats -->
                                 <h2>Informations saisies</h2>
 
                                 <table class="result-table" cellpadding="5" cellspacing="0">
@@ -155,7 +154,6 @@
                                 </center>
 
                             <% } else { %>
-                                <!-- Affichage du formulaire -->
                                 <h2>Veuillez remplir le formulaire ci-dessous</h2>
 
                                 <form method="post" action="exercice8">

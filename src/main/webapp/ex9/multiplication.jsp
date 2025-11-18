@@ -134,7 +134,6 @@
                                 int fin = (Integer) request.getAttribute("fin");
                             %>
 
-                            <!-- Formulaire de contrôle -->
                             <div class="control-panel">
                                 <form method="get" action="exercice9">
                                     <table width="100%" cellpadding="0" cellspacing="0">
@@ -153,7 +152,6 @@
                                 </form>
                             </div>
 
-                            <!-- Affichage des tables -->
                             <table class="tables-container" cellpadding="5" cellspacing="0">
                                 <tr>
                                     <%
