@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP1 - Jakarta EE - Exercices 6 à 9</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        .exercises {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .exercise-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .exercise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+        .exercise-card h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .exercise-card p {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .exercise-card a {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+        .exercise-card a:hover {
+            background-color: #5568d3;
+        }
+        .exercise-6 { border-left: 5px solid #667eea; }
+        .exercise-7 { border-left: 5px solid #f093fb; }
+        .exercise-8 { border-left: 5px solid #4facfe; }
+        .exercise-9 { border-left: 5px solid #43e97b; }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+        }
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TP1 - Jakarta EE</h1>
+        <p class="subtitle">Exercices de pratique - Servlets & JSP</p>
+
+        <div class="exercises">
+            <!-- Exercice 6 -->
+            <div class="exercise-card exercise-6">
+                <h2>Exercice 6 <span class="badge">Math</span></h2>
+                <p>
+                    <strong>Équation du second degré</strong><br>
+                    Résolvez une équation du type AX² + BX + C = 0 avec calcul du discriminant
+                    et affichage des solutions réelles.
+                </p>
+                <a href="exercice6">Accéder à l'exercice &rarr;</a>
+            </div>
+
+            <!-- Exercice 7 -->
+            <div class="exercise-card exercise-7">
+                <h2>Exercice 7 <span class="badge">Auth</span></h2>
+                <p>
+                    <strong>Page de connexion</strong><br>
+                    Formulaire d'authentification avec validation des identifiants
+                    (login: admin, password: passer). Gestion des échecs avec retour au formulaire.
+                </p>
+                <a href="exercice7">Accéder à l'exercice &rarr;</a>
+            </div>
+
+            <!-- Exercice 8 -->
+            <div class="exercise-card exercise-8">
+                <h2>Exercice 8 <span class="badge">Form</span></h2>
+                <p>
+                    <strong>Présentation utilisateur</strong><br>
+                    Formulaire de saisie d'informations personnelles (nom, prénom, date et lieu de naissance)
+                    avec affichage des données soumises.
+                </p>
+                <a href="exercice8">Accéder à l'exercice &rarr;</a>
+            </div>
+
+            <!-- Exercice 9 -->
+            <div class="exercise-card exercise-9">
+                <h2>Exercice 9 <span class="badge">Tables</span></h2>
+                <p>
+                    <strong>Tables de multiplication</strong><br>
+                    Affichage horizontal des tables de multiplication de 1 à 5 (par défaut).
+                    Les limites peuvent être personnalisées via l'URL.
+                </p>
+                <a href="exercice9">Accéder à l'exercice &rarr;</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Jakarta EE 10 - Tomcat 10.1 - Java 17</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                Architecture: Servlet + JSP (Pattern MVC)
+            </p>
+        </div>
+    </div>
+</body>
+</html>
