@@ -6,147 +6,190 @@
     <title>Exercice 9 - Tables de multiplication</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 30px;
+            background-color: #008080;
+            font-family: Arial, "MS Sans Serif", sans-serif;
+            margin: 0;
             padding: 20px;
-            background-color: #f5f5f5;
         }
-        .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            max-width: 1200px;
-            margin: 0 auto;
+        table {
+            border-collapse: collapse;
+        }
+        .titlebar {
+            background: linear-gradient(to bottom, #000080, #1084d0);
+            color: white;
+            padding: 3px 5px;
+            font-weight: bold;
+            font-size: 11px;
+        }
+        .main-container {
+            background-color: #C0C0C0;
+            border: 2px outset #FFFFFF;
+            padding: 2px;
+        }
+        .content-area {
+            background-color: #C0C0C0;
+            padding: 15px;
         }
         h1 {
             text-align: center;
-            color: #333;
-            margin-bottom: 30px;
+            font-size: 18px;
+            margin: 10px 0;
+            color: #000080;
+        }
+        .control-panel {
+            background-color: #E0E0E0;
+            border: 2px groove #808080;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .control-panel table {
+            width: 100%;
+        }
+        .control-panel td {
+            padding: 5px;
+        }
+        .control-panel label {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        input[type="number"] {
+            width: 60px;
+            padding: 3px;
+            border: 2px inset #808080;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+        }
+        button {
+            background-color: #C0C0C0;
+            border-width: 2px;
+            border-style: outset;
+            border-color: #FFFFFF #000000 #000000 #FFFFFF;
+            padding: 5px 15px;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            cursor: pointer;
+        }
+        button:active {
+            border-style: inset;
+            border-color: #000000 #FFFFFF #FFFFFF #000000;
         }
         .tables-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
+            width: 100%;
+            border: 2px inset #808080;
+            background-color: #FFFFFF;
+            margin: 15px 0;
         }
         .table-column {
-            flex: 1;
-            min-width: 120px;
-            max-width: 200px;
-            padding: 15px;
-            background-color: #fafafa;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            border: 1px solid #808080;
+            background-color: #FFFFFF;
+            vertical-align: top;
+            padding: 5px;
         }
-        .table-row {
+        .table-header {
+            background: linear-gradient(to bottom, #000080, #0000AA);
+            color: white;
             padding: 8px;
-            margin: 5px 0;
-            background-color: white;
-            border-radius: 3px;
-            font-size: 14px;
-        }
-        .multiply {
-            color: #e91e63;
+            text-align: center;
             font-weight: bold;
+            font-size: 16px;
+            border: 1px solid #000000;
         }
-        .equals {
-            color: #2196F3;
+        .mult-table {
+            width: 100%;
+            margin-top: 5px;
+        }
+        .mult-table td {
+            padding: 4px;
+            border: 1px solid #C0C0C0;
+            font-size: 11px;
+        }
+        .mult-table tr:nth-child(even) {
+            background-color: #F0F0F0;
+        }
+        .operator {
+            color: #FF0000;
+            font-weight: bold;
         }
         .result {
-            color: #4CAF50;
+            color: #0000AA;
             font-weight: bold;
-        }
-        .controls {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: #e3f2fd;
-            border-radius: 5px;
-        }
-        .controls label {
-            margin: 0 10px;
-            font-weight: bold;
-        }
-        .controls input {
-            width: 60px;
-            padding: 5px;
-            margin: 0 5px;
-            border: 1px solid #2196F3;
-            border-radius: 3px;
-        }
-        .controls button {
-            padding: 8px 20px;
-            background-color: #2196F3;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-left: 10px;
-        }
-        .controls button:hover {
-            background-color: #0b7dda;
-        }
-        .header-number {
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-            color: #2196F3;
-            margin-bottom: 15px;
-            padding: 10px;
-            background-color: #e3f2fd;
-            border-radius: 5px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Table de multiplication</h1>
+    <center>
+    <table width="95%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" class="main-container">
+                    <tr>
+                        <td class="titlebar">Exercice 9 - Tables de multiplication</td>
+                    </tr>
+                    <tr>
+                        <td class="content-area">
+                            <h1>Table de multiplication</h1>
 
-        <%
-            int debut = (Integer) request.getAttribute("debut");
-            int fin = (Integer) request.getAttribute("fin");
-        %>
+                            <%
+                                int debut = (Integer) request.getAttribute("debut");
+                                int fin = (Integer) request.getAttribute("fin");
+                            %>
 
-        <!-- Formulaire de contrôle -->
-        <div class="controls">
-            <form method="get" action="exercice9">
-                <label for="debut">Début :</label>
-                <input type="number" id="debut" name="debut" value="<%= debut %>" min="1" max="20">
+                            <!-- Formulaire de contrôle -->
+                            <div class="control-panel">
+                                <form method="get" action="exercice9">
+                                    <table width="100%" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td align="center">
+                                                <label for="debut">Début :</label>
+                                                <input type="number" id="debut" name="debut" value="<%= debut %>" min="1" max="20">
+                                                &nbsp;&nbsp;
+                                                <label for="fin">Fin :</label>
+                                                <input type="number" id="fin" name="fin" value="<%= fin %>" min="1" max="20">
+                                                &nbsp;&nbsp;
+                                                <button type="submit">Afficher</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
 
-                <label for="fin">Fin :</label>
-                <input type="number" id="fin" name="fin" value="<%= fin %>" min="1" max="20">
+                            <!-- Affichage des tables -->
+                            <table class="tables-container" cellpadding="5" cellspacing="0">
+                                <tr>
+                                    <%
+                                        for (int table = debut; table <= fin; table++) {
+                                    %>
+                                        <td class="table-column">
+                                            <div class="table-header"><%= table %></div>
+                                            <table class="mult-table" cellpadding="2" cellspacing="0">
+                                                <%
+                                                    for (int i = 1; i <= 10; i++) {
+                                                        int resultat = table * i;
+                                                %>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <%= table %> <span class="operator">×</span> <%= i %>
+                                                            <span class="operator">=</span>
+                                                            <span class="result"><%= resultat %></span>
+                                                        </td>
+                                                    </tr>
+                                                <%
+                                                    }
+                                                %>
+                                            </table>
+                                        </td>
+                                    <%
+                                        }
+                                    %>
+                                </tr>
+                            </table>
 
-                <button type="submit">Afficher</button>
-            </form>
-        </div>
-
-        <!-- Affichage des tables -->
-        <div class="tables-container">
-            <%
-                for (int table = debut; table <= fin; table++) {
-            %>
-                <div class="table-column">
-                    <div class="header-number"><%= table %></div>
-                    <%
-                        for (int i = 1; i <= 10; i++) {
-                            int resultat = table * i;
-                    %>
-                        <div class="table-row">
-                            <span><%= table %></span>
-                            <span class="multiply"> * </span>
-                            <span><%= i %></span>
-                            <span class="equals"> = </span>
-                            <span class="result"><%= resultat %></span>
-                        </div>
-                    <%
-                        }
-                    %>
-                </div>
-            <%
-                }
-            %>
-        </div>
-    </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </center>
 </body>
 </html>

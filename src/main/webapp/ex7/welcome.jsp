@@ -6,67 +6,123 @@
     <title>Bienvenue</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-color: #008080;
+            font-family: Arial, "MS Sans Serif", sans-serif;
             margin: 0;
+            padding: 20px;
         }
-        .welcome-container {
-            background-color: white;
-            padding: 50px;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        table {
+            border-collapse: collapse;
+        }
+        .titlebar {
+            background: linear-gradient(to bottom, #000080, #1084d0);
+            color: white;
+            padding: 3px 5px;
+            font-weight: bold;
+            font-size: 11px;
+        }
+        .main-container {
+            background-color: #C0C0C0;
+            border: 2px outset #FFFFFF;
+            padding: 2px;
+        }
+        .content-area {
+            background-color: #C0C0C0;
+            padding: 30px;
+        }
+        .success-panel {
+            background-color: #00FF00;
+            border: 2px outset #00AA00;
+            padding: 20px;
             text-align: center;
-            max-width: 500px;
-        }
-        h1 {
-            color: #11998e;
-            margin-bottom: 20px;
+            margin: 20px 0;
         }
         .success-icon {
-            font-size: 60px;
-            color: #38ef7d;
-            margin-bottom: 20px;
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
         .message {
-            font-size: 18px;
-            color: #555;
-            margin: 20px 0;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 10px 0;
         }
         .user-info {
-            background-color: #e8f5e9;
+            background-color: #FFFFFF;
+            border: 2px inset #808080;
             padding: 15px;
-            border-radius: 5px;
             margin: 20px 0;
-            color: #2e7d32;
-            font-weight: bold;
+            text-align: center;
         }
-        .logout {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: #11998e;
-            color: white;
+        .button {
+            background-color: #C0C0C0;
+            border-width: 2px;
+            border-style: outset;
+            border-color: #FFFFFF #000000 #000000 #FFFFFF;
+            padding: 6px 20px;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            cursor: pointer;
             text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
+            color: black;
+            display: inline-block;
         }
-        .logout:hover {
-            background-color: #0d7a72;
+        .button:active {
+            border-style: inset;
+            border-color: #000000 #FFFFFF #FFFFFF #000000;
         }
     </style>
 </head>
 <body>
-    <div class="welcome-container">
-        <div class="success-icon">✓</div>
-        <h1>Connexion réussie !</h1>
-        <p class="message">Bienvenue sur votre espace personnel</p>
-        <div class="user-info">
-            Utilisateur connecté : <%= request.getAttribute("login") %>
-        </div>
-        <a href="../exercice7" class="logout">Retour à la page de connexion</a>
-    </div>
+    <center>
+    <table width="600" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" class="main-container">
+                    <tr>
+                        <td class="titlebar">Exercice 7 - Connexion réussie</td>
+                    </tr>
+                    <tr>
+                        <td class="content-area">
+
+                            <div class="success-panel">
+                                <div class="success-icon">✓</div>
+                                <div class="message">CONNEXION RÉUSSIE !</div>
+                            </div>
+
+                            <table width="100%" border="0">
+                                <tr>
+                                    <td align="center">
+                                        <p style="font-size: 14px; margin: 20px 0;">
+                                            Bienvenue sur votre espace personnel
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <div class="user-info">
+                                <table width="100%" border="1" cellpadding="8" cellspacing="0" style="border-color: #808080;">
+                                    <tr>
+                                        <th bgcolor="#C0C0C0" width="40%">Utilisateur connecté :</th>
+                                        <td><b><%= request.getAttribute("login") %></b></td>
+                                    </tr>
+                                    <tr>
+                                        <th bgcolor="#C0C0C0">Statut :</th>
+                                        <td><b style="color: #008000;">AUTHENTIFIÉ</b></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <center>
+                                <a href="../exercice7" class="button">◄ Retour à la page de connexion</a>
+                            </center>
+
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </center>
 </body>
 </html>

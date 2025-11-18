@@ -6,97 +6,143 @@
     <title>Exercice 6 - Équation du second degré</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 50px auto;
+            background-color: #008080;
+            font-family: Arial, "MS Sans Serif", sans-serif;
+            margin: 0;
             padding: 20px;
-            background-color: #f5f5f5;
         }
-        .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        table {
+            border-collapse: collapse;
+        }
+        .titlebar {
+            background: linear-gradient(to bottom, #000080, #1084d0);
+            color: white;
+            padding: 3px 5px;
+            font-weight: bold;
+            font-size: 11px;
+        }
+        .main-container {
+            background-color: #C0C0C0;
+            border: 2px outset #FFFFFF;
+            padding: 2px;
+        }
+        .content-area {
+            background-color: #C0C0C0;
+            padding: 15px;
         }
         h1 {
-            color: #333;
             text-align: center;
+            font-size: 18px;
+            margin: 10px 0;
+            color: #000080;
         }
-        .equation {
+        .equation-display {
             text-align: center;
-            font-size: 1.2em;
-            margin: 20px 0;
-            color: #666;
-        }
-        .form-group {
-            margin: 15px 0;
-        }
-        label {
-            display: inline-block;
-            width: 150px;
+            font-size: 16px;
             font-weight: bold;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #FFFFFF;
+            border: 2px inset #808080;
+        }
+        .form-table {
+            width: 100%;
+            border: 2px inset #808080;
+            background-color: #FFFFFF;
+        }
+        .form-table th {
+            background-color: #C0C0C0;
+            padding: 8px;
+            text-align: right;
+            font-weight: bold;
+            width: 40%;
+            border: 1px solid #808080;
+        }
+        .form-table td {
+            padding: 8px;
+            border: 1px solid #808080;
         }
         input[type="number"] {
-            width: 200px;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            width: 95%;
+            padding: 3px;
+            border: 2px inset #808080;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
         }
         button {
-            width: 100%;
-            padding: 12px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
+            background-color: #C0C0C0;
+            border-width: 2px;
+            border-style: outset;
+            border-color: #FFFFFF #000000 #000000 #FFFFFF;
+            padding: 6px 20px;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
             cursor: pointer;
-            font-size: 16px;
-            margin-top: 20px;
+            width: 100%;
+            margin-top: 10px;
         }
-        button:hover {
-            background-color: #45a049;
+        button:active {
+            border-style: inset;
+            border-color: #000000 #FFFFFF #FFFFFF #000000;
         }
         .erreur {
-            color: red;
+            background-color: #FF0000;
+            color: #FFFFFF;
             padding: 10px;
-            background-color: #ffe6e6;
-            border-radius: 4px;
-            margin-bottom: 15px;
+            border: 2px outset #FF0000;
+            margin: 10px 0;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Résolution d'équation du second degré</h1>
+    <center>
+    <table width="600" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" class="main-container">
+                    <tr>
+                        <td class="titlebar">Exercice 6 - Résolution d'équation du second degré</td>
+                    </tr>
+                    <tr>
+                        <td class="content-area">
+                            <h1>Résolution d'équation du second degré</h1>
 
-        <div class="equation">
-            AX² + BX + C = 0
-        </div>
+                            <div class="equation-display">
+                                AX² + BX + C = 0
+                            </div>
 
-        <% if (request.getAttribute("erreur") != null) { %>
-            <div class="erreur">
-                <%= request.getAttribute("erreur") %>
-            </div>
-        <% } %>
+                            <% if (request.getAttribute("erreur") != null) { %>
+                                <div class="erreur">
+                                    ⚠ <%= request.getAttribute("erreur") %>
+                                </div>
+                            <% } %>
 
-        <form method="post" action="exercice6">
-            <div class="form-group">
-                <label for="a">Coefficient A :</label>
-                <input type="number" id="a" name="a" step="any" required>
-            </div>
+                            <form method="post" action="exercice6">
+                                <table class="form-table" cellpadding="5" cellspacing="0">
+                                    <tr>
+                                        <th>Coefficient A :</th>
+                                        <td><input type="number" name="a" step="any" required></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Coefficient B :</th>
+                                        <td><input type="number" name="b" step="any" required></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Coefficient C :</th>
+                                        <td><input type="number" name="c" step="any" required></td>
+                                    </tr>
+                                </table>
 
-            <div class="form-group">
-                <label for="b">Coefficient B :</label>
-                <input type="number" id="b" name="b" step="any" required>
-            </div>
+                                <button type="submit">Résoudre l'équation</button>
+                            </form>
 
-            <div class="form-group">
-                <label for="c">Coefficient C :</label>
-                <input type="number" id="c" name="c" step="any" required>
-            </div>
-
-            <button type="submit">Résoudre l'équation</button>
-        </form>
-    </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </center>
 </body>
 </html>

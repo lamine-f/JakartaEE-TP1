@@ -6,157 +6,193 @@
     <title>Exercice 8 - Présentation</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            max-width: 700px;
-            margin: 50px auto;
+            background-color: #008080;
+            font-family: Arial, "MS Sans Serif", sans-serif;
+            margin: 0;
             padding: 20px;
-            background-color: #f5f5f5;
         }
-        .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        table {
+            border-collapse: collapse;
+        }
+        .titlebar {
+            background: linear-gradient(to bottom, #000080, #1084d0);
+            color: white;
+            padding: 3px 5px;
+            font-weight: bold;
+            font-size: 11px;
+        }
+        .main-container {
+            background-color: #C0C0C0;
+            border: 2px outset #FFFFFF;
+            padding: 2px;
+        }
+        .content-area {
+            background-color: #C0C0C0;
+            padding: 15px;
         }
         h1 {
-            color: #333;
             text-align: center;
-            margin-bottom: 30px;
+            font-size: 18px;
+            margin: 10px 0;
+            color: #000080;
         }
         h2 {
-            color: #2196F3;
-            border-bottom: 2px solid #2196F3;
-            padding-bottom: 10px;
-            margin-top: 30px;
+            font-size: 14px;
+            margin: 15px 0 10px 0;
+            color: #000080;
+            background-color: #E0E0E0;
+            padding: 5px;
+            border: 2px groove #808080;
         }
-        .form-group {
-            margin: 15px 0;
+        .form-table {
+            width: 100%;
+            border: 2px inset #808080;
+            background-color: #FFFFFF;
+            margin: 10px 0;
         }
-        label {
-            display: block;
-            margin-bottom: 5px;
+        .form-table th {
+            background-color: #C0C0C0;
+            padding: 8px;
+            text-align: right;
             font-weight: bold;
-            color: #555;
+            width: 40%;
+            border: 1px solid #808080;
+        }
+        .form-table td {
+            padding: 8px;
+            border: 1px solid #808080;
         }
         input[type="text"],
         input[type="date"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 14px;
+            width: 95%;
+            padding: 3px;
+            border: 2px inset #808080;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
         }
-        input:focus {
-            outline: none;
-            border-color: #2196F3;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #2196F3;
-            color: white;
-            border: none;
-            border-radius: 4px;
+        button, .button {
+            background-color: #C0C0C0;
+            border-width: 2px;
+            border-style: outset;
+            border-color: #FFFFFF #000000 #000000 #FFFFFF;
+            padding: 6px 20px;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
             cursor: pointer;
-            font-size: 16px;
-            margin-top: 20px;
-        }
-        button:hover {
-            background-color: #0b7dda;
-        }
-        .results {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #e8f5e9;
-            border-radius: 4px;
-            border-left: 4px solid #4CAF50;
-        }
-        .result-item {
-            margin: 10px 0;
-            padding: 8px;
-            background-color: white;
-            border-radius: 3px;
-        }
-        .result-label {
-            font-weight: bold;
-            color: #2e7d32;
-            display: inline-block;
-            width: 180px;
-        }
-        .result-value {
-            color: #555;
-        }
-        .nouveau {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #FF9800;
-            color: white;
             text-decoration: none;
-            border-radius: 4px;
-            margin-top: 20px;
+            color: black;
+            display: inline-block;
         }
-        .nouveau:hover {
-            background-color: #e68900;
+        button:active, .button:active {
+            border-style: inset;
+            border-color: #000000 #FFFFFF #FFFFFF #000000;
+        }
+        .result-table {
+            width: 100%;
+            border: 2px inset #808080;
+            background-color: #FFFFFF;
+            margin: 10px 0;
+        }
+        .result-table th {
+            background: linear-gradient(to bottom, #000080, #0000AA);
+            color: white;
+            padding: 8px;
+            text-align: left;
+            font-weight: bold;
+            border: 1px solid #000000;
+        }
+        .result-table td {
+            padding: 8px;
+            border: 1px solid #808080;
+            background-color: #FFFFE0;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Formulaire de Présentation</h1>
+    <center>
+    <table width="700" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" class="main-container">
+                    <tr>
+                        <td class="titlebar">Exercice 8 - Formulaire de présentation</td>
+                    </tr>
+                    <tr>
+                        <td class="content-area">
+                            <h1>Formulaire de Présentation</h1>
 
-        <%
-            Boolean submitted = (Boolean) request.getAttribute("submitted");
-            if (submitted != null && submitted) {
-        %>
-            <!-- Affichage des résultats -->
-            <h2>Informations saisies</h2>
-            <div class="results">
-                <div class="result-item">
-                    <span class="result-label">Nom :</span>
-                    <span class="result-value"><%= request.getAttribute("nom") %></span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Prénom :</span>
-                    <span class="result-value"><%= request.getAttribute("prenom") %></span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Date de naissance :</span>
-                    <span class="result-value"><%= request.getAttribute("dateNaissance") %></span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Lieu de naissance :</span>
-                    <span class="result-value"><%= request.getAttribute("lieuNaissance") %></span>
-                </div>
-            </div>
-            <a href="exercice8" class="nouveau">Nouvelle présentation</a>
+                            <%
+                                Boolean submitted = (Boolean) request.getAttribute("submitted");
+                                if (submitted != null && submitted) {
+                            %>
+                                <!-- Affichage des résultats -->
+                                <h2>Informations saisies</h2>
 
-        <% } else { %>
-            <!-- Affichage du formulaire -->
-            <form method="post" action="exercice8">
-                <div class="form-group">
-                    <label for="nom">Nom :</label>
-                    <input type="text" id="nom" name="nom" required>
-                </div>
+                                <table class="result-table" cellpadding="5" cellspacing="0">
+                                    <tr>
+                                        <th colspan="2">Résumé de votre présentation</th>
+                                    </tr>
+                                    <tr>
+                                        <td width="40%"><b>Nom :</b></td>
+                                        <td><%= request.getAttribute("nom") %></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Prénom :</b></td>
+                                        <td><%= request.getAttribute("prenom") %></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Date de naissance :</b></td>
+                                        <td><%= request.getAttribute("dateNaissance") %></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Lieu de naissance :</b></td>
+                                        <td><%= request.getAttribute("lieuNaissance") %></td>
+                                    </tr>
+                                </table>
 
-                <div class="form-group">
-                    <label for="prenom">Prénom :</label>
-                    <input type="text" id="prenom" name="prenom" required>
-                </div>
+                                <center>
+                                    <a href="exercice8" class="button">◄ Nouvelle présentation</a>
+                                </center>
 
-                <div class="form-group">
-                    <label for="dateNaissance">Date de naissance :</label>
-                    <input type="date" id="dateNaissance" name="dateNaissance" required>
-                </div>
+                            <% } else { %>
+                                <!-- Affichage du formulaire -->
+                                <h2>Veuillez remplir le formulaire ci-dessous</h2>
 
-                <div class="form-group">
-                    <label for="lieuNaissance">Lieu de naissance :</label>
-                    <input type="text" id="lieuNaissance" name="lieuNaissance" required>
-                </div>
+                                <form method="post" action="exercice8">
+                                    <table class="form-table" cellpadding="5" cellspacing="0">
+                                        <tr>
+                                            <th>Nom :</th>
+                                            <td><input type="text" name="nom" required></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Prénom :</th>
+                                            <td><input type="text" name="prenom" required></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Date de naissance :</th>
+                                            <td><input type="date" name="dateNaissance" required></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Lieu de naissance :</th>
+                                            <td><input type="text" name="lieuNaissance" required></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" align="center" style="padding-top: 10px;">
+                                                <button type="submit">Valider</button>
+                                                &nbsp;&nbsp;
+                                                <button type="reset">Réinitialiser</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            <% } %>
 
-                <button type="submit">Valider</button>
-            </form>
-        <% } %>
-    </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </center>
 </body>
 </html>
